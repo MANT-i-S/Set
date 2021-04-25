@@ -13,7 +13,7 @@
 		155E33782635D9F50042F851 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 155E33762635D9F50042F851 /* Main.storyboard */; };
 		155E337A2635D9F60042F851 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 155E33792635D9F60042F851 /* Assets.xcassets */; };
 		155E337D2635D9F60042F851 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 155E337B2635D9F60042F851 /* LaunchScreen.storyboard */; };
-		155E33882635DA620042F851 /* Set.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155E33872635DA620042F851 /* Set.swift */; };
+		155E33882635DA620042F851 /* GameOfSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155E33872635DA620042F851 /* GameOfSet.swift */; };
 		155E338C2635DA7A0042F851 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155E338B2635DA7A0042F851 /* Card.swift */; };
 /* End PBXBuildFile section */
 
@@ -26,7 +26,7 @@
 		155E33792635D9F60042F851 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		155E337C2635D9F60042F851 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		155E337E2635D9F60042F851 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		155E33872635DA620042F851 /* Set.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Set.swift; sourceTree = "<group>"; };
+		155E33872635DA620042F851 /* GameOfSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOfSet.swift; sourceTree = "<group>"; };
 		155E338B2635DA7A0042F851 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -83,7 +83,7 @@
 		155E33862635DA450042F851 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				155E33872635DA620042F851 /* Set.swift */,
+				155E33872635DA620042F851 /* GameOfSet.swift */,
 				155E338B2635DA7A0042F851 /* Card.swift */,
 			);
 			path = Model;
@@ -159,7 +159,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				155E33882635DA620042F851 /* Set.swift in Sources */,
+				155E33882635DA620042F851 /* GameOfSet.swift in Sources */,
 				155E33752635D9F50042F851 /* ViewController.swift in Sources */,
 				155E338C2635DA7A0042F851 /* Card.swift in Sources */,
 				155E33712635D9F50042F851 /* AppDelegate.swift in Sources */,
