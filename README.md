@@ -1,2 +1,1 @@
-# Set
-Game for IOS
+# Set game for IOS
