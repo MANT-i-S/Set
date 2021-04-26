@@ -21,7 +21,7 @@ struct Deck {
         }
     }
     
-    //Creates array of 81 Cards.
+    //Creates array of 81 different Cards.
     init(){
         var shapeIndex = 0
         

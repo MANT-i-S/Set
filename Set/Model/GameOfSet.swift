@@ -9,6 +9,7 @@ import Foundation
 
 struct GameOfSet {
     var score = 0;
+    var deck = Deck()
     
     func test() {
         var deck = Deck()
