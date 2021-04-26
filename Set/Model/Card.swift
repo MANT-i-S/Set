@@ -8,50 +8,53 @@
 import Foundation
 
 struct Card {
-    //TODO reimplement generation of deck with enum..or at least learn how to do so and check if it's better.
-    private let face: String
+    private let setOfSymbols = ["●", "○", "◎", "■", "□", "☒", "✭", "☆", "✶"] // move this to controller maybe? But that way I'll have to generate face in controller also...is this action part of controller?o_O think about it.
+    let face: String
     
-    //red, green, blue
-    enum Color {
-        case red, blue, green
+    private enum Shape: CaseIterable {
+        case circle, square, star
     }
-    enum shade {
-        case empty, full, mixed
+    
+    private enum Fill: CaseIterable {
+        case empty, full, middle
     }
-    enum numberOfSymbols {
+    
+    private enum NumberOfSymbols: CaseIterable {
         case one, two, three
     }
     
-    enum symbol {
-        case ● = sym(Color)
+    private enum Color: CaseIterable {
+        case red, blue, green
     }
     
-    private let color: String
-    //"empty", "full", "mixed" only.
-    private let shade: String
-    private let numberOfSymbols: Int
+    private let shape: Shape
+    private let fill: Fill
+    private let numberOfSymbols: NumberOfSymbols
+    private let color: Color
     
-    func isSet(_ firstCard: Self, _ secondCard: Self,_ thirdCard: Self) -> Bool {
+    func areSet(_ firstCard: Self, _ secondCard: Self,_ thirdCard: Self) -> Bool {
         //TODO confirm rules of the game and implement this
         return false
     }
     
-    init(with symbol: String, of color: String, with numberOfSymbols: Int) {
-        self.color = color
-        
-        var combinedFace = symbol
-        for _ in 1..<numberOfSymbols {
-            combinedFace += "\n"
-            combinedFace += symbol
+    private func faceGenerator() {
+        switch shape {
+        case .circle:
+            print (shape)
+        case .square:
+            print (shape)
+        case .star:
+            print (shape)
         }
-        self.face = combinedFace
+        //TODO implement face generator.
+    }
+    
+    init(_ shapeIndex: Int, _ colorIndex: Int, _ fillIndex: Int, _ numberOfSymbolsIndex: Int) {
+        self.shape = Shape.allCases[shapeIndex]
+        self.color = Color.allCases[colorIndex]
+        self.fill = Fill.allCases[fillIndex]
+        self.numberOfSymbols = NumberOfSymbols.allCases[numberOfSymbolsIndex]
+        self.face = "?" //TODO maybe its not part of the model.
     }
 }
 
-//Maybe use to use indexes in enum, or maybe there is a better way.
-//extension CaseIterable where Self: Equatable {
-//
-//    var index: Self.AllCases.Index? {
-//        return Self.allCases.firstIndex { self == $0 }
-//    }
-//}
