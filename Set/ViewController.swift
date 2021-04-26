@@ -14,13 +14,7 @@ class ViewController: UIViewController {
     @IBOutlet var cardButtons: [UIButton]!
     
     @IBAction func touchCard(_ sender: UIButton) {
-        var i = 0
-        while i < 81 {
-            print("----")
-            print(game.deckOfCards[i].faceOfTheCard)
-            print("----")
-            i += 1
-        }
+        game.test()
     }
     
 }

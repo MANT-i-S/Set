@@ -39,7 +39,6 @@ struct Card {
     //["●", "○", "◎", "■", "□", "☒", "✭", "☆", "✶"]
     private func faceGenerator() -> String {
         var face = String()
-        //var numberOfRaws = numberOfSymbols.rawValue
         
         switch shape {
         case .circle:

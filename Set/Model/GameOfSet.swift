@@ -8,44 +8,29 @@
 import Foundation
 
 struct GameOfSet {
-    
-    //private let setOfSymbols = ["●", "○", "◎", "■", "□", "☒", "✭", "☆", "✶"]
-    
-    lazy var deckOfCards: [Card] = generateDeckOfCards()
-    
     var score = 0;
     
-    //Creates array of 81 Cards.
-    func generateDeckOfCards() -> [Card] {
-        var deckOfCards = [Card]()
+    func test() {
+        var deck = Deck()
         
-        var shapeIndex = 0
-        
-        while shapeIndex < 3 {
-            var colorIndex = 0
-            while colorIndex < 3 {
-                var fillIndex = 0
-                while fillIndex < 3 {
-                    var numberOfSymbolsIndex = 0
-                    while numberOfSymbolsIndex < 3 {
-                        deckOfCards.append(Card(shapeIndex, colorIndex, fillIndex, numberOfSymbolsIndex))
-                        numberOfSymbolsIndex += 1
-                    }
-                    fillIndex += 1
-                }
-                colorIndex += 1
-            }
-            shapeIndex += 1
+        print("after dealing")
+        for index in 0..<deck.faceUpCards.count {
+            print("---")
+            print(deck.faceUpCards[index].faceOfTheCard)
+            print("---")
         }
-        return deckOfCards
-    }
-    
-    func dealCards() {
-        
-    }
-    
-    func dealThreeMoreCards() {
-        
-    }
+        deck.dealThreeMoreCards()
+        print("after dealing 3 more cards")
+        for index in 0..<deck.faceUpCards.count {
+            print("---")
+            print(deck.faceUpCards[index].faceOfTheCard)
+            print("---")
+        }
 
+        
+    }
+    
+    init() {
+        
+    }
 }

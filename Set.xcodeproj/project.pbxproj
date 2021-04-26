@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1545446E263759AB00AC2574 /* Deck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1545446D263759AB00AC2574 /* Deck.swift */; };
 		155E33712635D9F50042F851 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155E33702635D9F50042F851 /* AppDelegate.swift */; };
 		155E33732635D9F50042F851 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155E33722635D9F50042F851 /* SceneDelegate.swift */; };
 		155E33752635D9F50042F851 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155E33742635D9F50042F851 /* ViewController.swift */; };
@@ -18,6 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1545446D263759AB00AC2574 /* Deck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Deck.swift; sourceTree = "<group>"; };
 		155E336D2635D9F50042F851 /* Set.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Set.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		155E33702635D9F50042F851 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		155E33722635D9F50042F851 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -84,6 +86,7 @@
 			isa = PBXGroup;
 			children = (
 				155E33872635DA620042F851 /* GameOfSet.swift */,
+				1545446D263759AB00AC2574 /* Deck.swift */,
 				155E338B2635DA7A0042F851 /* Card.swift */,
 			);
 			path = Model;
@@ -159,6 +162,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1545446E263759AB00AC2574 /* Deck.swift in Sources */,
 				155E33882635DA620042F851 /* GameOfSet.swift in Sources */,
 				155E33752635D9F50042F851 /* ViewController.swift in Sources */,
 				155E338C2635DA7A0042F851 /* Card.swift in Sources */,
