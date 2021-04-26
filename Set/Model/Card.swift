@@ -8,8 +8,7 @@
 import Foundation
 
 struct Card {
-    private let setOfSymbols = ["●", "○", "◎", "■", "□", "☒", "✭", "☆", "✶"] // move this to controller maybe? But that way I'll have to generate face in controller also...is this action part of controller?o_O think about it.
-    let face: String
+    lazy var faceOfTheCard = faceGenerator()
     
     private enum Shape: CaseIterable {
         case circle, square, star
@@ -19,34 +18,95 @@ struct Card {
         case empty, full, middle
     }
     
-    private enum NumberOfSymbols: CaseIterable {
-        case one, two, three
+    private enum NumberOfSymbols: Int, CaseIterable {
+        case one = 1, two, three
     }
     
-    private enum Color: CaseIterable {
+    enum Color: CaseIterable {
         case red, blue, green
     }
     
     private let shape: Shape
     private let fill: Fill
     private let numberOfSymbols: NumberOfSymbols
-    private let color: Color
+    let color: Color
     
     func areSet(_ firstCard: Self, _ secondCard: Self,_ thirdCard: Self) -> Bool {
         //TODO confirm rules of the game and implement this
         return false
     }
     
-    private func faceGenerator() {
+    //["●", "○", "◎", "■", "□", "☒", "✭", "☆", "✶"]
+    private func faceGenerator() -> String {
+        var face = String()
+        //var numberOfRaws = numberOfSymbols.rawValue
+        
         switch shape {
         case .circle:
-            print (shape)
+            switch fill {
+            case .empty:
+                face += "○"
+                for _ in 1..<numberOfSymbols.rawValue {
+                    face += "\n"
+                    face += "○"
+                }
+            case .full:
+                face += "●"
+                for _ in 1..<numberOfSymbols.rawValue {
+                    face += "\n"
+                    face += "●"
+                }
+            case .middle:
+                face += "◎"
+                for _ in 1..<numberOfSymbols.rawValue {
+                    face += "\n"
+                    face += "◎"
+                }
+            }
         case .square:
-            print (shape)
+            switch fill {
+            case .empty:
+                face += "□"
+                for _ in 1..<numberOfSymbols.rawValue {
+                    face += "\n"
+                    face += "□"
+                }
+            case .full:
+                face += "■"
+                for _ in 1..<numberOfSymbols.rawValue {
+                    face += "\n"
+                    face += "■"
+                }
+            case .middle:
+                face += "☒"
+                for _ in 1..<numberOfSymbols.rawValue {
+                    face += "\n"
+                    face += "☒"
+                }
+            }
         case .star:
-            print (shape)
+            switch fill {
+            case .empty:
+                face += "☆"
+                for _ in 1..<numberOfSymbols.rawValue {
+                    face += "\n"
+                    face += "☆"
+                }
+            case .full:
+                face += "✭"
+                for _ in 1..<numberOfSymbols.rawValue {
+                    face += "\n"
+                    face += "✭"
+                }
+            case .middle:
+                face += "✶"
+                for _ in 1..<numberOfSymbols.rawValue {
+                    face += "\n"
+                    face += "✶"
+                }
+            }
         }
-        //TODO implement face generator.
+        return face
     }
     
     init(_ shapeIndex: Int, _ colorIndex: Int, _ fillIndex: Int, _ numberOfSymbolsIndex: Int) {
@@ -54,7 +114,6 @@ struct Card {
         self.color = Color.allCases[colorIndex]
         self.fill = Fill.allCases[fillIndex]
         self.numberOfSymbols = NumberOfSymbols.allCases[numberOfSymbolsIndex]
-        self.face = "?" //TODO maybe its not part of the model.
     }
 }
 

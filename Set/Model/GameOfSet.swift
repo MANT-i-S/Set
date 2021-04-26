@@ -15,6 +15,7 @@ struct GameOfSet {
     
     var score = 0;
     
+    //Creates array of 81 Cards.
     func generateDeckOfCards() -> [Card] {
         var deckOfCards = [Card]()
         
@@ -36,7 +37,6 @@ struct GameOfSet {
             }
             shapeIndex += 1
         }
-        print("inside of deckofcards")//TODO remove this.
         return deckOfCards
     }
     
