@@ -9,15 +9,12 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    let game = GameOfSet()
-    
-    override func viewDidLoad() {
-        
-    }
+    var game = GameOfSet()
     
     @IBOutlet var cardButtons: [UIButton]!
     
     @IBAction func touchCard(_ sender: UIButton) {
+        print(game.deckOfCards)
     }
     
 }

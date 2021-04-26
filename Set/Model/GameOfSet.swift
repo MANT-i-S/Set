@@ -12,11 +12,11 @@ struct GameOfSet {
     private let setOfSymbols = ["●", "○", "◎", "■", "□", "☒", "✭", "☆", "✶"]
     private let setOfColors = ["red", "green", "blue"]
     
-    private lazy var deckOfCards: [Card] = createDeckOfCards()
+    lazy var deckOfCards: [Card] = generateDeckOfCards()
     
     var score = 0;
     
-    func createDeckOfCards() -> [Card] {
+    func generateDeckOfCards() -> [Card] {
         var deckOfCards = [Card]()
         var numberOfSymbols = 1
         
@@ -28,8 +28,7 @@ struct GameOfSet {
             }
             numberOfSymbols += 1
         }
-        print("inside of deckofcards")
-        print(deckOfCards) //TODO remove this.
+        print("inside of deckofcards")//TODO remove this.
         return deckOfCards
     }
     
@@ -40,8 +39,5 @@ struct GameOfSet {
     func dealThreeMoreCards() {
         
     }
-    
-    init() {
-        
-    }
+
 }
