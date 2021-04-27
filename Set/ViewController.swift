@@ -21,9 +21,11 @@ class ViewController: UIViewController {
         for cardButton in cardButtons {
             cardButton.setTitle(nil, for: .normal)
         }
-        for cardButton in cardButtons {
+        for buttonIndex in cardButtons.indices {
+            let cardButton = cardButtons[buttonIndex]
             if index < game.deck.faceUpCards.count, cardButton.currentTitle == nil {
                 cardButton.setTitle(game.deck.faceUpCards[index].faceOfTheCard, for: .normal)
+                game.deck.faceUpCards[index].cardButtonIndex = buttonIndex
                 switch game.deck.faceUpCards[index].color {
                 case .red:
                     cardButton.setTitleColor(#colorLiteral(red: 1, green: 0.1491314173, blue: 0, alpha: 1), for: .normal)

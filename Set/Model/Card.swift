@@ -10,6 +10,8 @@ import Foundation
 struct Card {
     lazy var faceOfTheCard = faceGenerator()
     
+    var cardButtonIndex : Int?
+    
     private enum Shape: CaseIterable {
         case circle, square, star
     }

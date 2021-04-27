@@ -11,6 +11,8 @@ struct GameOfSet {
     var score = 0;
     var deck = Deck()
     
+    
+    
     mutating func test() {
         
         print("after dealing")
@@ -28,8 +30,6 @@ struct GameOfSet {
             print("---")
         }
         print("Cards in faceupdeck \(deck.faceUpCards.count)")
-
-        
     }
     
     init() {
