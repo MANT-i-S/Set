@@ -11,8 +11,7 @@ struct GameOfSet {
     var score = 0;
     var deck = Deck()
     
-    func test() {
-        var deck = Deck()
+    mutating func test() {
         
         print("after dealing")
         for index in 0..<deck.faceUpCards.count {
@@ -20,6 +19,7 @@ struct GameOfSet {
             print(deck.faceUpCards[index].faceOfTheCard)
             print("---")
         }
+        print("Cards in faceupdeck \(deck.faceUpCards.count)")
         deck.dealThreeMoreCards()
         print("after dealing 3 more cards")
         for index in 0..<deck.faceUpCards.count {
@@ -27,6 +27,7 @@ struct GameOfSet {
             print(deck.faceUpCards[index].faceOfTheCard)
             print("---")
         }
+        print("Cards in faceupdeck \(deck.faceUpCards.count)")
 
         
     }

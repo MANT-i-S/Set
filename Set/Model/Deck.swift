@@ -14,7 +14,7 @@ struct Deck {
     var faceUpCards = [Card]()
     
     mutating func dealThreeMoreCards() {
-        if deckOfCards.count > 3, faceUpCards.count <= 18 {
+        if deckOfCards.count > 3, faceUpCards.count < 18 {
             for _ in 1...3 {
                 faceUpCards.append(deckOfCards.remove(at: deckOfCards.startIndex))
             }
