@@ -198,6 +198,11 @@
                                     </stackView>
                                 </subviews>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FKX-Xd-ogM">
+                                <rect key="frame" x="140" y="774" width="110" height="36"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="Deal 3 cards"/>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -205,6 +210,9 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ZZy-UH-HFh" secondAttribute="trailing" constant="16" id="Cpq-A6-4E8"/>
                             <constraint firstItem="ZZy-UH-HFh" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="IhR-V4-P1f"/>
                             <constraint firstItem="ZZy-UH-HFh" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="16" id="IzT-NZ-Led"/>
+                            <constraint firstItem="FKX-Xd-ogM" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="U0A-Fa-SEI"/>
+                            <constraint firstItem="FKX-Xd-ogM" firstAttribute="top" relation="greaterThanOrEqual" secondItem="ZZy-UH-HFh" secondAttribute="bottom" constant="8" symbolic="YES" id="liP-mF-7M9"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="FKX-Xd-ogM" secondAttribute="bottom" id="zwA-ds-nS6"/>
                         </constraints>
                     </view>
                     <connections>

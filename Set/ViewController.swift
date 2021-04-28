@@ -37,10 +37,12 @@ class ViewController: UIViewController {
         }
     }
     
+    //Max of 18 cards can be face up on the board without a Set.
     @IBOutlet var cardButtons: [UIButton]!
 
     var highlightedButtons = 0
     
+    //Simulate selecting\deselecting of card, send to check if set when 3 cards selected.
     @IBAction func touchCard(_ sender: UIButton) {
         if sender.tag < game.deck.faceUpCards.count, highlightedButtons < 3, sender.backgroundColor != #colorLiteral(red: 1, green: 0.8323456645, blue: 0.4732058644, alpha: 1) {
             sender.backgroundColor = #colorLiteral(red: 1, green: 0.8323456645, blue: 0.4732058644, alpha: 1)
@@ -56,6 +58,14 @@ class ViewController: UIViewController {
                 }
                 highlightedButtons = 0
             }
+        } else if sender.tag < game.deck.faceUpCards.count, sender.backgroundColor == #colorLiteral(red: 1, green: 0.8323456645, blue: 0.4732058644, alpha: 1) {
+            sender.backgroundColor = #colorLiteral(red: 0.6679978967, green: 0.4751212597, blue: 0.2586010993, alpha: 1)
+            for index in game.threePickedCards.indices {
+                if game.deck.faceUpCards[sender.tag] == game.threePickedCards[index] {
+                    game.threePickedCards.remove(at: index)
+                }
+            }
+            highlightedButtons += -1
         }
 //        game.test()
         viewCardsUpdate()
