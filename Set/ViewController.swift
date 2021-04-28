@@ -16,8 +16,10 @@ class ViewController: UIViewController {
     }
     
     func viewCardsUpdate() {
+        scoreLabel.text = "Score: \(game.score)"
         for cardButton in cardButtons {
             cardButton.setTitle(nil, for: .normal)
+            cardButton.backgroundColor = nil
         }
         for index in game.deck.faceUpCards.indices {
             if let tmpButton = self.view.viewWithTag(index + 1) as? UIButton {
@@ -47,8 +49,11 @@ class ViewController: UIViewController {
     }
     
     @IBAction func dealThreeMoreCards(_ sender: UIButton) {
-        game.deck.dealThreeMoreCards()
-        viewCardsUpdate()
+        if game.deck.faceUpCards.count < 18 {
+            game.score += -1
+            game.deck.dealThreeMoreCards()
+            viewCardsUpdate()
+        }
     }
     //Max of 18 cards can be face up on the board without a Set.
     @IBOutlet var cardButtons: [UIButton]!
@@ -58,7 +63,6 @@ class ViewController: UIViewController {
         if sender.tag <= game.deck.faceUpCards.count, game.threePickedCards.count < 3, sender.backgroundColor != #colorLiteral(red: 1, green: 0.8323456645, blue: 0.4732058644, alpha: 1) {
             sender.backgroundColor = #colorLiteral(red: 1, green: 0.8323456645, blue: 0.4732058644, alpha: 1)
             game.threePickedCards.append(game.deck.faceUpCards[sender.tag - 1])
-            print("game.threePickedCards.count = \(game.threePickedCards.count)")
             if game.threePickedCards.count >= 3, game.threePickedCards.count == 3 {
                 game.processThreePickedCards()
                 viewCardsUpdate()

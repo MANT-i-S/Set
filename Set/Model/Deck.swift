@@ -13,6 +13,7 @@ struct Deck {
     
     var faceUpCards = [Card]()
     
+    //Move 3 more cards from deckOfCards to faceUpCards if deckOfCards > 3, faceUpCards < 18 (18 cards must have at least 1 set)
     mutating func dealThreeMoreCards() {
         if deckOfCards.count > 3, faceUpCards.count < 18 {
             for _ in 1...3 {

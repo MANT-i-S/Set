@@ -20,7 +20,7 @@ struct Card {
     }
     
     private enum NumberOfSymbols: Int, CaseIterable {
-        case one = 1, two = 2, three = 3
+        case one = 1, two = 2, three = 3 //'= 2' '= 3' may be removed, if needed.
     }
     
     enum Color: CaseIterable {
@@ -34,25 +34,17 @@ struct Card {
     
     //RULE #1 OF "SET" : YOU CAN =NOT= HAVE TWO OF ANYTHING !! You can have "none" of an attribute, or three, but never two! (Comment from youtube video xD)
     func areSet(_ firstCard: Self, _ secondCard: Self,_ thirdCard: Self) -> Bool {
-        print("Shape \(Set([firstCard.shape, secondCard.shape, thirdCard.shape]).count)")
-        print(firstCard.shape, secondCard.shape, thirdCard.shape)
-        print("color \(Set([firstCard.color, secondCard.color, thirdCard.color]).count)")
-        print(firstCard.color, secondCard.color, thirdCard.color)
-        print("numberofsymbols \(Set([firstCard.numberOfSymbols, secondCard.numberOfSymbols, thirdCard.numberOfSymbols]).count)")
-        print(firstCard.numberOfSymbols, secondCard.numberOfSymbols, thirdCard.numberOfSymbols)
-        print("fill \(Set([firstCard.fill, secondCard.fill, thirdCard.fill]).count)")
-        print(firstCard.fill, secondCard.fill, thirdCard.fill)
         if Set([firstCard.shape, secondCard.shape, thirdCard.shape]).count != 2,
             Set([firstCard.color, secondCard.color, thirdCard.color]).count != 2,
             Set([firstCard.numberOfSymbols, secondCard.numberOfSymbols, thirdCard.numberOfSymbols]).count != 2,
             Set([firstCard.fill, secondCard.fill, thirdCard.fill]).count != 2 {
-            //TODO still didn't get rules of the game probably xD
             return true
         } else {
             return false
         }
     }
     
+    //Create String for UI button.
     //["●", "○", "◎", "■", "□", "☒", "✭", "☆", "✡︎"]
     private func faceGenerator() -> String {
         var face = String()
@@ -125,6 +117,7 @@ struct Card {
         return face
     }
     
+    //Checks if 2 cards identical.
     static func ==(lhs: Card, rhs: Card) -> Bool {
         return lhs.shape == rhs.shape && lhs.color == rhs.color && lhs.fill == rhs.fill && rhs.numberOfSymbols == lhs.numberOfSymbols
     }
