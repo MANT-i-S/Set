@@ -24,6 +24,7 @@ class ViewController: UIViewController {
         for buttonIndex in cardButtons.indices {
             if index < game.deck.faceUpCards.count, cardButtons[buttonIndex].currentTitle == nil {
                 cardButtons[buttonIndex].setTitle(game.deck.faceUpCards[index].faceOfTheCard, for: .normal)
+                cardButtons[buttonIndex].backgroundColor = #colorLiteral(red: 0.6679978967, green: 0.4751212597, blue: 0.2586010993, alpha: 1)
                 switch game.deck.faceUpCards[index].color {
                 case .red:
                     cardButtons[buttonIndex].setTitleColor(#colorLiteral(red: 1, green: 0.1491314173, blue: 0, alpha: 1), for: .normal)
@@ -39,24 +40,21 @@ class ViewController: UIViewController {
     
     //Max of 18 cards can be face up on the board without a Set.
     @IBOutlet var cardButtons: [UIButton]!
-
-    var highlightedButtons = 0
     
     //Simulate selecting\deselecting of card, send to check if set when 3 cards selected.
     @IBAction func touchCard(_ sender: UIButton) {
-        if sender.tag < game.deck.faceUpCards.count, highlightedButtons < 3, sender.backgroundColor != #colorLiteral(red: 1, green: 0.8323456645, blue: 0.4732058644, alpha: 1) {
+        if sender.tag < game.deck.faceUpCards.count, game.threePickedCards.count < 3, sender.backgroundColor != #colorLiteral(red: 1, green: 0.8323456645, blue: 0.4732058644, alpha: 1) {
             sender.backgroundColor = #colorLiteral(red: 1, green: 0.8323456645, blue: 0.4732058644, alpha: 1)
             game.threePickedCards.append(game.deck.faceUpCards[sender.tag])
-            highlightedButtons += 1
-            print("highlightedButtons = \(highlightedButtons), game.threePickedCards.count = \(game.threePickedCards.count)")
-            if highlightedButtons >= 3, game.threePickedCards.count == 3 {
+            print("game.threePickedCards.count = \(game.threePickedCards.count)")
+            if game.threePickedCards.count >= 3, game.threePickedCards.count == 3 {
                 print("step 1")
                 game.processThreePickedCards()
-                //TODO check if cards are set if yes remove them if no leave them, anyway change color to brown again
-                for button in cardButtons {
-                    button.backgroundColor = #colorLiteral(red: 0.6679978967, green: 0.4751212597, blue: 0.2586010993, alpha: 1)
+                for index in game.deck.faceUpCards.indices {
+                    if let tmpButton = self.view.viewWithTag(index) as? UIButton {
+                        tmpButton.backgroundColor = #colorLiteral(red: 0.6679978967, green: 0.4751212597, blue: 0.2586010993, alpha: 1)
+                    }
                 }
-                highlightedButtons = 0
             }
         } else if sender.tag < game.deck.faceUpCards.count, sender.backgroundColor == #colorLiteral(red: 1, green: 0.8323456645, blue: 0.4732058644, alpha: 1) {
             sender.backgroundColor = #colorLiteral(red: 0.6679978967, green: 0.4751212597, blue: 0.2586010993, alpha: 1)
@@ -65,10 +63,8 @@ class ViewController: UIViewController {
                     game.threePickedCards.remove(at: index)
                 }
             }
-            highlightedButtons += -1
         }
 //        game.test()
-        viewCardsUpdate()
     }
 }
 
