@@ -16,13 +16,15 @@ struct GameOfSet {
         if threePickedCards.count == 3 && threePickedCards[0].areSet(threePickedCards[0], threePickedCards[1], threePickedCards[2]) == true {
             print("Cards are set") //TODO remove
             for pickedCard in threePickedCards {
-                for index in deck.faceUpCards.indices {
+                var index = 0
+                while index < deck.faceUpCards.count {
                     if deck.faceUpCards[index] == pickedCard {
                         print("card removed") //TODO Remove
                         //TODO figure out the way to remove cards.
                         deck.faceUpCards.remove(at: index)
+                        break
                     }
-                    continue
+                    index += 1
                 }
             }
         }

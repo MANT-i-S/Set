@@ -20,7 +20,7 @@ struct Card {
     }
     
     private enum NumberOfSymbols: Int, CaseIterable {
-        case one = 1, two, three
+        case one = 1, two = 2, three = 3
     }
     
     enum Color: CaseIterable {
@@ -35,9 +35,9 @@ struct Card {
     //RULE #1 OF "SET" : YOU CAN =NOT= HAVE TWO OF ANYTHING !! You can have "none" of an attribute, or three, but never two! (Comment from youtube video xD)
     func areSet(_ firstCard: Self, _ secondCard: Self,_ thirdCard: Self) -> Bool {
         print("Shape \(Set([firstCard.shape, secondCard.shape, thirdCard.shape]).count)")
-        print(Set([firstCard.color, secondCard.color, thirdCard.color]).count)
-        print(Set([firstCard.numberOfSymbols, secondCard.numberOfSymbols, thirdCard.numberOfSymbols]).count)
-        print(Set([firstCard.fill, secondCard.fill, thirdCard.fill]).count)
+        print("color \(Set([firstCard.color, secondCard.color, thirdCard.color]).count)")
+        print("numberofsymbols \(Set([firstCard.numberOfSymbols, secondCard.numberOfSymbols, thirdCard.numberOfSymbols]).count)")
+        print("fill \(Set([firstCard.fill, secondCard.fill, thirdCard.fill]).count)")
         if Set([firstCard.shape, secondCard.shape, thirdCard.shape]).count != 2,
             Set([firstCard.color, secondCard.color, thirdCard.color]).count != 2,
             Set([firstCard.numberOfSymbols, secondCard.numberOfSymbols, thirdCard.numberOfSymbols]).count != 2,

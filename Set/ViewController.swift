@@ -42,7 +42,7 @@ class ViewController: UIViewController {
     var highlightedButtons = 0
     
     @IBAction func touchCard(_ sender: UIButton) {
-        if sender.tag < game.deck.faceUpCards.count ,highlightedButtons < 3 {
+        if sender.tag < game.deck.faceUpCards.count, highlightedButtons < 3, sender.backgroundColor != #colorLiteral(red: 1, green: 0.8323456645, blue: 0.4732058644, alpha: 1) {
             sender.backgroundColor = #colorLiteral(red: 1, green: 0.8323456645, blue: 0.4732058644, alpha: 1)
             game.threePickedCards.append(game.deck.faceUpCards[sender.tag])
             highlightedButtons += 1
