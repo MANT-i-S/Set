@@ -24,7 +24,7 @@ struct Deck {
     //Creates array of 81 different Cards, shuffles and moves 12 to faceUpCards.
     init(){
         var shapeIndex = 0
-        
+        deckOfCards.removeAll()
         while shapeIndex < 3 {
             var colorIndex = 0
             while colorIndex < 3 {
@@ -42,6 +42,7 @@ struct Deck {
             shapeIndex += 1
         }
         deckOfCards.shuffle()
+        faceUpCards.removeAll()
         for _ in 1...12 {
             faceUpCards.append(deckOfCards.remove(at: deckOfCards.startIndex))
         }

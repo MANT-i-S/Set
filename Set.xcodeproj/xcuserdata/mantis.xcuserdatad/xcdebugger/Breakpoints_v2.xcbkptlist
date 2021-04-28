@@ -7,16 +7,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "AB1AFCF9-6ED0-457D-A759-88AA636165F4"
+            uuid = "E30A4814-962E-4AF5-8B67-05F2004473E6"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Set/Model/GameOfSet.swift"
+            filePath = "Set/ViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "44"
-            endingLineNumber = "44"
-            landmarkName = "test()"
+            startingLineNumber = "27"
+            endingLineNumber = "27"
+            landmarkName = "viewCardsUpdate()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
