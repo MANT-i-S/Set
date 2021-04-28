@@ -8,9 +8,8 @@
 import Foundation
 
 struct Card {
+    //Used to fill button's title.
     lazy var faceOfTheCard = faceGenerator()
-    
-    var cardButtonIndex : Int?
     
     private enum Shape: CaseIterable {
         case circle, square, star
@@ -33,12 +32,24 @@ struct Card {
     private let numberOfSymbols: NumberOfSymbols
     let color: Color
     
+    //RULE #1 OF "SET" : YOU CAN =NOT= HAVE TWO OF ANYTHING !! You can have "none" of an attribute, or three, but never two! (Comment from youtube video xD)
     func areSet(_ firstCard: Self, _ secondCard: Self,_ thirdCard: Self) -> Bool {
-        //TODO confirm rules of the game and implement this
-        return false
+        print("Shape \(Set([firstCard.shape, secondCard.shape, thirdCard.shape]).count)")
+        print(Set([firstCard.color, secondCard.color, thirdCard.color]).count)
+        print(Set([firstCard.numberOfSymbols, secondCard.numberOfSymbols, thirdCard.numberOfSymbols]).count)
+        print(Set([firstCard.fill, secondCard.fill, thirdCard.fill]).count)
+        if Set([firstCard.shape, secondCard.shape, thirdCard.shape]).count != 2,
+            Set([firstCard.color, secondCard.color, thirdCard.color]).count != 2,
+            Set([firstCard.numberOfSymbols, secondCard.numberOfSymbols, thirdCard.numberOfSymbols]).count != 2,
+            Set([firstCard.fill, secondCard.fill, thirdCard.fill]).count != 2 {
+            //TODO still didn't get rules of the game probably xD
+            return true
+        } else {
+            return false
+        }
     }
     
-    //["●", "○", "◎", "■", "□", "☒", "✭", "☆", "✶"]
+    //["●", "○", "◎", "■", "□", "☒", "✭", "☆", "✡︎"]
     private func faceGenerator() -> String {
         var face = String()
         
@@ -100,14 +111,18 @@ struct Card {
                     face += "✭"
                 }
             case .middle:
-                face += "✶"
+                face += "✡︎"
                 for _ in 1..<numberOfSymbols.rawValue {
                     face += "\n"
-                    face += "✶"
+                    face += "✡︎"
                 }
             }
         }
         return face
+    }
+    
+    static func ==(lhs: Card, rhs: Card) -> Bool {
+        return lhs.shape == rhs.shape && lhs.color == rhs.color && lhs.fill == rhs.fill && rhs.numberOfSymbols == lhs.numberOfSymbols
     }
     
     init(_ shapeIndex: Int, _ colorIndex: Int, _ fillIndex: Int, _ numberOfSymbolsIndex: Int) {
