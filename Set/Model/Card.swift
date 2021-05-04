@@ -8,6 +8,7 @@
 import Foundation
 
 struct Card {
+    
     //Used to fill button's title.
     lazy var faceOfTheCard = faceGenerator()
     

@@ -16,6 +16,7 @@
 		155E337D2635D9F60042F851 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 155E337B2635D9F60042F851 /* LaunchScreen.storyboard */; };
 		155E33882635DA620042F851 /* GameOfSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155E33872635DA620042F851 /* GameOfSet.swift */; };
 		155E338C2635DA7A0042F851 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155E338B2635DA7A0042F851 /* Card.swift */; };
+		1598E79A263F561000574186 /* PlayingCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1598E799263F561000574186 /* PlayingCardView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		155E337E2635D9F60042F851 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		155E33872635DA620042F851 /* GameOfSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOfSet.swift; sourceTree = "<group>"; };
 		155E338B2635DA7A0042F851 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
+		1598E799263F561000574186 /* PlayingCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayingCardView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +65,7 @@
 			isa = PBXGroup;
 			children = (
 				155E33862635DA450042F851 /* Model */,
+				1598E799263F561000574186 /* PlayingCardView.swift */,
 				155E33762635D9F50042F851 /* Main.storyboard */,
 				155E33742635D9F50042F851 /* ViewController.swift */,
 				155E33852635DA080042F851 /* Supporting FIles */,
@@ -163,6 +166,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1545446E263759AB00AC2574 /* Deck.swift in Sources */,
+				1598E79A263F561000574186 /* PlayingCardView.swift in Sources */,
 				155E33882635DA620042F851 /* GameOfSet.swift in Sources */,
 				155E33752635D9F50042F851 /* ViewController.swift in Sources */,
 				155E338C2635DA7A0042F851 /* Card.swift in Sources */,

@@ -8,6 +8,7 @@
 import Foundation
 
 struct GameOfSet {
+    
     var score = 0;
     var deck = Deck()
     var threePickedCards = [Card]()
