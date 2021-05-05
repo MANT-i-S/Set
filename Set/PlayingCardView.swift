@@ -34,17 +34,24 @@ class PlayingCardView: UIView {
         }
     }
     
+//    path.move(to: CGPoint (x: bounds.midX / 2, y: bounds.midY))
+//    path.addLine(to: CGPoint(x: bounds.midX, y: bounds.midY * 0.75))
+//    path.addLine(to: CGPoint(x: bounds.maxX * 0.75, y: bounds.midY))
+//    path.addLine(to: CGPoint(x: bounds.midX, y: bounds.midY + bounds.midY * 0.25))
+//    path.addLine(to: CGPoint (x: bounds.midX / 2, y: bounds.midY))
+    
     func addDiamonds(to path: UIBezierPath, number: Int) {
-        //TODO Implement function to draw diamond by giving only the most left starting point. If it is possible...
-        //let point = CGPoint(x: bounds.midX / 2, y: bounds.midY)
-        let point = CGPoint(x: 20, y: 150)
+        //TODO Implement function to draw diemond by giving only the most left starting point. Or maybe just draw those shapes manually and move on...
+        //Starting X coordinates must be (bounds.midX / 2)
+        let point = CGPoint (x: bounds.midX / 2, y: bounds.midY)
         if number == 1 {
-            path.move(to: CGPoint (x: point.x, y: point.y))
+            path.move(to: point)
             
             path.addLine(to: CGPoint(x: point.x * 2, y: point.y * 0.75))
             path.addLine(to: CGPoint(x: point.x * 3, y: point.y))
-            path.addLine(to: CGPoint(x: point.x * 2, y: point.y + point.y * 0.25))
-            path.addLine(to: CGPoint (x: point.x, y: point.y))
+            path.addLine(to: CGPoint(x: point.x * 2, y: point.y * 1.25))
+            
+            path.addLine(to: point)
         } else if number == 2 {
             
         } else if number == 3 {
