@@ -18,7 +18,7 @@ class PlayingCardView: UIView {
         path.addLine(to: CGPoint(x: bounds.midX, y: bounds.midY + bounds.midY * 0.25))
         path.addLine(to: CGPoint (x: bounds.midX / 2, y: bounds.midY))
         path.addClip()
-        path.addLine(to: CGPoint (x: bounds.maxX, y: bounds.midY))
+        addShading(path: path)
         if shade == 1 {
             //TODO make color variable.
             UIColor.green.setStroke()
@@ -31,8 +31,24 @@ class PlayingCardView: UIView {
         }
     }
     
-    func addShading()
+    func addShading(path: UIBezierPath)
     {
-        
+        var myX = 0.0
+        var myY = 0.0
+        path.move(to: CGPoint(x: myX, y: myY))
+        while myX <= Double(bounds.maxX) { //TODO figure out good while condition to shade it nice and clean...maybe there is actually 'smart' way to do this xD
+            myX += 5.0
+            path.move(to: CGPoint(x: myX, y: 0.0))
+            myY += 5.0
+            path.addLine(to: CGPoint(x: 0.0, y: myY))
+        }
+        myX = 15.0
+        myY = 0.0
+        while myX < Double(bounds.maxX) {
+            myY += 5.0
+            path.move(to: CGPoint(x: Double(bounds.maxX), y: myY))
+            myX += 5.0
+            path.addLine(to: CGPoint(x: myX, y: Double(bounds.maxY)))
+        }
     }
 }
