@@ -36,18 +36,18 @@ class PlayingCardView: UIView {
         var myX = 0.0
         var myY = 0.0
         path.move(to: CGPoint(x: myX, y: myY))
-        while myX <= Double(bounds.maxX) { //TODO figure out good while condition to shade it nice and clean...maybe there is actually 'smart' way to do this xD
-            myX += 5.0
+        while myX <= Double(bounds.maxX) {
+            myX += Double(bounds.maxX) * 0.02
             path.move(to: CGPoint(x: myX, y: 0.0))
-            myY += 5.0
+            myY += Double(bounds.maxY) * 0.02
             path.addLine(to: CGPoint(x: 0.0, y: myY))
         }
-        myX = 15.0
+        myX = 0.0
         myY = 0.0
-        while myX < Double(bounds.maxX) {
-            myY += 5.0
+        while myX <= Double(bounds.maxX) {
+            myY += Double(bounds.maxY) * 0.02
             path.move(to: CGPoint(x: Double(bounds.maxX), y: myY))
-            myX += 5.0
+            myX += Double(bounds.maxX) * 0.02
             path.addLine(to: CGPoint(x: myX, y: Double(bounds.maxY)))
         }
     }
