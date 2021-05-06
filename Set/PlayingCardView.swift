@@ -14,12 +14,26 @@ class PlayingCardView: UIView {
     //diamonds, ovals, or squiggles
     override func draw(_ rect: CGRect) {
         let shade = 1
+        
         let path = UIBezierPath()
         path.lineWidth = 2
+        if let context = UIGraphicsGetCurrentContext() {
+//            context.move(to: CGPoint (x: bounds.midX / 2, y: bounds.midY))
+//            context.addLine(to: CGPoint(x: bounds.midX, y: bounds.midY * 0.75))
+//            context.addLine(to: CGPoint(x: bounds.maxX * 0.75, y: bounds.midY))
+//            context.addLine(to: CGPoint(x: bounds.midX, y: bounds.midY * 1.25))
+//            context.addLine(to: CGPoint (x: bounds.midX / 2, y: bounds.midY))
+//            UIColor.blue.setStroke()
+//            context.strokePath()
+        }
         addDiamonds(to: path, number: 1)
         var shape = CAShapeLayer()
+
+        shape.path = path.cgPath
+        shape.position = CGPoint(x: 10.0, y: 10.0)
+        shape.strokeColor = UIColor.red.cgColor
+        
         //Kinda confused at this point. Redraw everything with context instead of path and try to use shapeLayer to copy shapes.
-        shape.position = CGPoint (x: bounds.midX, y: bounds.midY)
         if shade == 1 {
             //TODO make color variable.
             UIColor.green.setStroke()
