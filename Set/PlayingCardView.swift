@@ -13,10 +13,13 @@ class PlayingCardView: UIView {
     let gapBetweenShadingLines: CGFloat = 0.015
     //diamonds, ovals, or squiggles
     override func draw(_ rect: CGRect) {
-        let shade = 3
+        let shade = 1
         let path = UIBezierPath()
         path.lineWidth = 2
         addDiamonds(to: path, number: 1)
+        var shape = CAShapeLayer()
+        //Kinda confused at this point. Redraw everything with context instead of path and try to use shapeLayer to copy shapes.
+        shape.position = CGPoint (x: bounds.midX, y: bounds.midY)
         if shade == 1 {
             //TODO make color variable.
             UIColor.green.setStroke()
@@ -31,33 +34,28 @@ class PlayingCardView: UIView {
             path.addClip()
             path.stroke()
             addShading(of: UIColor.green)
+        } else {
+            print("error, override func draw, wrong quantity")
+            //error
         }
     }
     
-//    path.move(to: CGPoint (x: bounds.midX / 2, y: bounds.midY))
-//    path.addLine(to: CGPoint(x: bounds.midX, y: bounds.midY * 0.75))
-//    path.addLine(to: CGPoint(x: bounds.maxX * 0.75, y: bounds.midY))
-//    path.addLine(to: CGPoint(x: bounds.midX, y: bounds.midY + bounds.midY * 0.25))
-//    path.addLine(to: CGPoint (x: bounds.midX / 2, y: bounds.midY))
-    
     func addDiamonds(to path: UIBezierPath, number: Int) {
-        //TODO Implement function to draw diemond by giving only the most left starting point. Or maybe just draw those shapes manually and move on...
-        //Starting X coordinates must be (bounds.midX / 2)
-        let point = CGPoint (x: bounds.midX / 2, y: bounds.midY)
+        //TODO Implement function to draw diemond by giving only the most left starting point.
         if number == 1 {
-            path.move(to: point)
+            path.move(to: CGPoint (x: bounds.midX / 2, y: bounds.midY))
+            path.addLine(to: CGPoint(x: bounds.midX, y: bounds.midY * 0.75))
+            path.addLine(to: CGPoint(x: bounds.maxX * 0.75, y: bounds.midY))
+            path.addLine(to: CGPoint(x: bounds.midX, y: bounds.midY * 1.25))
+            path.addLine(to: CGPoint (x: bounds.midX / 2, y: bounds.midY))
             
-            path.addLine(to: CGPoint(x: point.x * 2, y: point.y * 0.75))
-            path.addLine(to: CGPoint(x: point.x * 3, y: point.y))
-            path.addLine(to: CGPoint(x: point.x * 2, y: point.y * 1.25))
-            
-            path.addLine(to: point)
         } else if number == 2 {
-            
+            path.move(to: CGPoint (x: bounds.midX / 2, y: bounds.midY / 2))
+            path.addLine(to: CGPoint(x: bounds.midX, y: bounds.midY * 0.10))
         } else if number == 3 {
             
         } else {
-            print("error, wrong quantity")
+            print("error, func addDiamonds, wrong quantity")
             //error
         }
     }
